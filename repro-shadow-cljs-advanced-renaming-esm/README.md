@@ -27,24 +27,18 @@ yarn build-release
 
 Try to load the compiled code:
 
-Dev mode runs file:
+Dev build runs fine:
 ```
 $ yarn node -e "require('./output/dev/app.main.js')"
 
-Bark from CJS!
 Bark from ESM!
-✨  Done in 0.18s.
 ```
+
+Relese build fails due to the renaming
 
 ```bash
-yarn node -e "require('./output/release/app.main.js')"
-```
-
-You'll see errors like this:
-```
 $ yarn node -e "require('./output/release/app.main.js')"
 
-yarn node v1.22.5
 my-repros/repro-advanced-renaming-js/output/release/app.main.js:46
   $dog$jscomp$inline_477$$.$bark$();
                            ^
@@ -62,3 +56,6 @@ TypeError: $dog$jscomp$inline_477$$.$bark$ is not a function
     at Object.runInThisContext (node:vm:306:38)
 error Command failed.
 ```
+
+From the output we can tell that `bark` is renamed to `$bark$`. If we turn off
+`:pseudo-names true` it would be renamed to shorter names like `Nb`.
