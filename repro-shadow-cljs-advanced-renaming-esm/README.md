@@ -1,9 +1,9 @@
 ### Issue Description
 
-ESM files used in a shadow-cljs project have its property-renamed.
+ESM files used in a shadow-cljs project have its property-renamed under advanced optimization.
 
-Ofc this is fix-able by using an externs file. But that's cumbersome, and ideally
-this shall work of the box without any externs files.
+Ofc this is fix-able by using an externs file. But it's cumbersome to add lots
+of externs. Ideally this shall work out of the box without any externs files.
 
 ### How To
 
@@ -30,7 +30,7 @@ $ yarn node -e "require('./output/dev/app.main.js')"
 Bark from ESM!
 ```
 
-Relese build fails due to the renaming
+Relese build fails due to the renaming:
 
 ```bash
 $ yarn node -e "require('./output/release/app.main.js')"
@@ -41,8 +41,6 @@ my-repros/repro-advanced-renaming-js/output/release/app.main.js:46
 
 TypeError: $dog$jscomp$inline_477$$.$bark$ is not a function
     at Object.<anonymous> (my-repros/repro-advanced-renaming-js/output/release/app.main.js:46:28)
-    
-...
 ...
 ```
 

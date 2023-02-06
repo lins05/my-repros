@@ -7,4 +7,14 @@
                   :compiler-options {:optimizations :advanced
                                      :pretty-print true
                                      :pseudo-names true}
-                  }}}}
+                 }}
+
+  :app-esm {:target :esm
+            :modules {:main {:exports {go app.main/go}}}
+            :dev {:output-dir "output/dev-esm"}
+            :release {:output-dir "output/release-esm"
+                      :compiler-options {:optimizations :advanced
+                                         :pretty-print true
+                                         :pseudo-names true}
+                     }}
+ }}
