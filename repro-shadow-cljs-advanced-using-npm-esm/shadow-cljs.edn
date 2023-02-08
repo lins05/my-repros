@@ -1,0 +1,13 @@
+{:deps {:aliases [:shadow-cljs]}
+ :builds
+ {:app {:target :esm
+            :js-options {:js-provider :import}
+            :modules {:app.main {:entries [app.main]}}
+            :devtools {:enabled false}
+            :dev {:output-dir "output/dev"}
+            :release {:output-dir "output/release"
+                      :compiler-options {:optimizations :advanced
+                                         :pretty-print true
+                                         :pseudo-names true}
+                     }}
+ }}
