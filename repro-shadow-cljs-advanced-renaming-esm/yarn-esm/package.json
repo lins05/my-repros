@@ -1,7 +1,0 @@
-{
-  "name": "yarn-esm",
-  "version": "1.0.0",
-  "module": true,
-  "module": "index.js",
-  "license": "MIT"
-}
